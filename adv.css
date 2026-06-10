@@ -1,0 +1,561 @@
+:root {
+    --preto-fundo: #0a0a0a;
+    --caramelo: #af7b4b;
+    --dourado: #b99851;
+    --branco-gelo: #fdfbf7;
+}
+
+* { 
+margin: 0; 
+padding: 0; 
+box-sizing: border-box; 
+scroll-behavior: smooth; 
+}
+
+body { 
+font-family: 'Montserrat', sans-serif; 
+color: #5d5151; 
+}
+
+.container { 
+max-width: 1200px; 
+margin: 0 auto; 
+padding: 0 20px; 
+
+}
+
+.text-center { 
+    text-align: center; 
+}
+
+/* Garante que o padding de espaçamento vertical aconteça na seção inteira (que ocupa 100% da tela) */
+.section { 
+    padding:90px 0; 
+    width: 100%; /* Força ocupar a largura total da janela do navegador */
+}
+
+/* Navbar */
+header { 
+background-color: #0a0a0a; 
+position: fixed; 
+width: 100%; 
+top: 0; 
+z-index: 1000; 
+border-bottom: 0.5px solid var(--dourado); 
+}
+
+nav { 
+background-color: #0a0a0a;
+display: flex; 
+justify-content: space-between; 
+align-items: center; 
+height: 80px; 
+}
+
+.logo { 
+font-family: 'Playfair Display', 
+serif; 
+font-weight: bold; 
+font-size: 1.4rem; 
+color: #b99851; 
+}
+
+.nav-links { 
+display: flex; 
+list-style: none; 
+}
+
+.nav-links li a { 
+text-decoration: none; 
+color: var(--caramelo); 
+margin-left: 25px; 
+font-weight: 600; 
+font-size: 0.9rem; 
+transition: 0.3s; 
+}
+
+.nav-links li a:hover { 
+color: var(--dourado); 
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #b99851;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+/* Media Query para Celulares */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Mostra os tracinhos no celular */
+    }
+
+    .nav-links {
+        position: absolute;
+        right: -100%; /* Esconde o menu para a direita */
+        top: 80px;
+        flex-direction: column;
+        background-color: var(--branco);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.active {
+        right: 0; /* Mostra o menu quando ativo */
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+    }
+}
+
+
+.hero {
+    background-color: var(--preto-fundo);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    color: var(--branco-gelo);
+}
+
+.hero-layout {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 2;
+}
+
+/* Branding no Hero */
+.logo-icon {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--dourado);
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.lawyer-name {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+/* Tipografia da Frase de Impacto */
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+/* Botão Caramelo */
+.btn-hero {
+    background-color: var(--caramelo);
+    color: var(--branco-gelo);
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.btn-hero:hover {
+    background-color: var(--dourado);
+    color: var(--preto-fundo);
+}
+.hero-column-art {
+    position: absolute;
+    right: 0%;          /* Afasta um pouco da borda direita */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40%;       /* Reduzido de 40% para 25% */
+    max-height: 70vh;   /* Limita a altura para 70% da visão da tela */
+    opacity: 0.25;      /* Opacidade mais sutil para dar elegância */
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Garante que o texto tenha prioridade visual */
+.hero-text-content {
+    position: relative;
+    z-index: 2;
+    padding-left: 0%;   /* Alinhamento refinado */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .hero-column-art { width: 60%; right: -80px; opacity: 0.2; }
+}
+/* ==========================================================================
+   Seção: Áreas de Atuação (Efeito Flip + Visual Premium)
+   ========================================================================== */
+
+#servicos {
+    background-color: #f7f7f7;
+    padding: 90px 0;
+    width: 100%;
+}
+
+/* Moldura externa dourada arredondada idêntica ao novo design */
+.moldura-atuacao {
+    border: 2px solid var(--dourado);
+    border-radius: 24px;
+    padding: 60px 40px;
+}
+
+.tt_areas_atuacao { 
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;  
+    color: var(--dourado);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.subtitulo-atuacao {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: var(--branco-gelo);
+    opacity: 0.8;
+    margin-bottom: 50px;
+    font-weight: 300;
+}
+
+/* Grid Inteligente que força os 4 elementos a ocuparem a mesma linha horizontal */
+.grid-atuacao { 
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px; 
+}
+
+/* Container do Flip (Garante o efeito de profundidade 3D) */
+.card-servico-flip { 
+    perspective: 1000px; 
+    height: 250px; /* Altura ideal fixa para os cards */
+    cursor: pointer; 
+}
+
+/* Elemento interno que executa o giro físico de 180 graus */
+.card-inner-flip { 
+    position: relative; 
+    width: 100%; 
+    height: 100%; 
+    text-align: center; 
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); 
+    transform-style: preserve-3d; 
+}
+
+/* Aciona a rotação ao passar o mouse por cima do card */
+.card-servico-flip:hover .card-inner-flip { 
+    transform: rotateY(180deg); 
+}
+
+/* Propriedades compartilhadas pelas faces Frontal e Traseira */
+.card-front-flip, .card-back-flip { 
+    position: absolute; 
+    width: 100%; 
+    height: 100%; 
+    backface-visibility: hidden; /* Esconde a face oposta durante a virada */
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    padding: 25px 20px; 
+    border-radius: 28px; /* Cantos arredondados ultra suaves da referência */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Face da Frente: Visual limpo com Ícone e Nome da área */
+.card-front-flip { 
+    background: var(--dourado); 
+    color: var(--preto-fundo); 
+}
+
+.icone-atuacao {
+    font-size: 2.8rem;
+    color: var(--preto-fundo);
+    margin-bottom: 20px;
+}
+
+.card-front-flip h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+    margin: 0;
+}
+
+/* Face de Trás: Exibe os textos explicativos detalhados */
+.card-back-flip { 
+    background: var(--caramelo); 
+    color: var(--branco-gelo); 
+    transform: rotateY(180deg); /* Começa invertida por padrão */
+    font-weight: 400; 
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Ajuste específico para listas internas herdar formatação elegante */
+.lista-back {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lista-back li {
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+}
+
+.lista-back li:last-child {
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   Responsividade Adaptativa para Telas Menores
+   ========================================================================== */
+@media (max-width: 1100px) {
+    .grid-atuacao { 
+        grid-template-columns: repeat(2, 1fr); /* Vira 2x2 em telas médias ou tablets */
+        gap: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .grid-atuacao { 
+        grid-template-columns: 1fr; /* Empilha em 1 coluna única no smartphone */
+    }
+    .moldura-atuacao {
+        padding: 40px 15px;
+        border-radius: 16px;
+    }
+    .tt_areas_atuacao {
+        font-size: 2.2rem;
+    }
+}
+/* Rodapé e Contato */
+footer { 
+background: var(--azul); 
+color: var(--branco); 
+}
+
+.contact-grid { 
+display: grid; 
+grid-template-columns: 1fr 1fr; 
+gap: 60px;
+}
+
+.btn-whatsapp { 
+background: #25d366; 
+color: white; 
+padding: 12px 25px; 
+display: inline-block; 
+border-radius: 5px; 
+text-decoration: none; 
+margin-top: 20px; 
+}
+
+.form-contato input, .form-contato textarea { 
+width: 100%; 
+padding: 12px;
+margin-bottom: 15px; 
+border-radius: 4px; 
+border: none; 
+}
+
+.btn-submit { 
+background: var(--dourado); 
+color: var(--azul); 
+font-weight: bold; 
+border: none; 
+padding: 15px 30px; 
+cursor: pointer;
+width: 100%; 
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .contact-grid, .sobre-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 2.5rem; }
+}
+
+/* --- Seção Sobre Mim (Divisão em duas colunas) --- */
+
+#sobre{
+    background-color: #f7f7f7;
+}
+
+.sobre-grid {
+    display: flex;
+    align-items: center;          /* Alinha verticalmente o texto e a foto ao centro */
+    justify-content: space-between;/* Distribui o espaço entre as caixas */
+    gap: 50px;                    /* Cria o espaçamento entre o texto e a imagem */
+}
+
+/* Força o texto a ficar no lado esquerdo e ocupar o espaço flexível */
+.sobre-texto {
+    flex: 1;
+    order: 1;                     /* Garante que o texto venha primeiro (esquerda) */
+}
+
+/* Estilização dos títulos e parágrafos do texto (opcional para acabamento) */
+.sobre-texto h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    color: var(--dourado);
+    margin-bottom: 10px;
+}
+
+.sobre-texto p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #5d5151; /* Mantém a cor padrão do seu body */
+}
+
+/* Força a foto a ficar no lado direito com tamanho fixo ideal */
+.sobre-img {
+    flex: 0 0 380px;              /* Define a largura fixa para a área da foto */
+    order: 2;                     /* Garante que a foto venha depois (direita) */
+}
+
+/* Se você usar uma tag <img> real dentro da classe .sobre-img */
+.sobre-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 50px;           /* Deixa os cantos levemente arredondados */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Sombra elegante */
+}
+
+/* Caso ainda esteja usando a caixinha escrita "FOTO AQUI" para testar: */
+.moldura-foto {
+    width: 100%;
+    height: 450px;
+    background-color: #1a1a1a;
+    border: 1px solid var(--dourado);
+    color: var(--branco-gelo);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* --- Responsividade para Celular --- */
+@media (max-width: 768px) {
+    .sobre-grid {
+        flex-direction: column;   /* Empilha os elementos no celular */
+        gap: 30px;
+    }
+
+    .sobre-texto {
+        order: 2;                 /* No celular, o texto fica embaixo */
+        text-align: center;       /* Centraliza o texto no mobile */
+    }
+
+    .sobre-img {
+        order: 1;                 /* No celular, a foto fica em cima */
+        flex: 0 1 auto;
+        width: 100%;
+        max-width: 320px;         /* Limita o tamanho da foto no celular */
+    }
+    
+    .moldura-foto {
+        height: 350px;            /* Ajusta a altura do bloco de teste no celular */
+    }
+}
+
+/* --- Estilização da Seção Missão, Visão e Valores --- */
+
+/* Fundo da seção inteira */
+.bg-dark {
+    background-color: var(--preto-fundo);
+    color: var(--branco-gelo);
+    /* Configurações para esticar verticalmente de ponta a ponta */
+    min-height: 100vh;       /* Ocupa no mínimo 100% da altura da tela */
+    display: flex;           /* Ativa o flexbox na section */
+    align-items: center;     /* Centraliza o conteúdo (os cards) verticalmente */
+    width: 100%;
+}
+
+/* Alinha as 3 caixas em colunas paralelas */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px; /* Espaçamento elegante entre os cards */
+    width: 100%;
+}
+
+/* Estilização individual de cada Card */
+.missao-card {
+    background-color: #121212; /* Um preto levemente mais claro que o fundo para dar relevo */
+    border: 1px solid rgba(151, 120, 51, 0.462); /* Borda dourada bem sutil */
+    padding: 40px 30px;
+    border-radius: 4px;
+    text-align:     center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* Efeito sutil ao passar o mouse */
+.missao-card:hover {
+    transform: translateY(-5px); /* Eleva o card levemente */
+    border-color: var(--dourado); /* Acende a borda dourada */
+}
+
+/* Estilo dos Ícones */
+.missao-icon {
+    font-size: 2rem;
+    color: var(--dourado);
+    margin-bottom: 20px;
+}
+
+/* Títulos (Missão, Visão, Valores) */
+.missao-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--branco-gelo);
+    margin-bottom: 15px;
+    letter-spacing: 1.2px;
+}
+
+/* Texto descritivo interno */
+.missao-card p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #c4c4c4; /* Tom cinza claro para não brigar com o título */
+}
+
+/* --- Responsividade para Celular --- */
+@media (max-width: 992px) {
+
+    .bg-dark{
+        padding: 60px 0px; /* Ajusta o padding para telas menores */
+        height: auto;
+    }
+    .grid-3 {
+        grid-template-columns: 1fr; /* Transforma em 1 coluna em tablets e celulares */
+        gap: 20px;
+    }
+    
+    .missao-card {
+        padding: 30px 20px;
+    }
+}
