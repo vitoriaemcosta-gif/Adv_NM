@@ -120,99 +120,137 @@ color: var(--dourado);
     }
 }
 
+/* ==========================================================================
+   SEÇÃO HERO
+   ========================================================================== */
 
-.hero {
-    background-color: var(--preto-fundo);
+   .hero {
+    background: #0c1020; /* Azul escuro corporativo */
     height: 100vh;
+    min-height: 600px; /* Garante que em telas muito baixas o conteúdo não quebre */
     display: flex;
     align-items: center;
-    position: relative;
-    overflow: hidden;
-    color: var(--branco-gelo);
+    overflow: hidden; /* ESSENCIAL: impede que a coluna gigante crie barra de rolagem horizontal */
+    position: relative; /* ESSENCIAL: serve de âncora para alinhar a imagem absoluta */
 }
 
-.hero-layout {
-    display: flex;
-    justify-content: space-between;
+.hero .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
     width: 100%;
-    z-index: 2;
+    position: relative;
+    z-index: 2; /* Garante que o texto fique por cima da imagem caso se cruzem */
 }
 
-/* Branding no Hero */
-.logo-icon {
+/* Estilização dos Textos (Esquerda) */
+.hero-conteudo {
+    display: flex;
+    flex-direction: column;
+    max-width: 650px; /* Limita a largura do texto para não colidir com o desenho */
+}
+
+.hero-marca {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+
+.hero-marca .sigla {
     font-family: 'Playfair Display', serif;
     font-size: 3rem;
-    color: var(--dourado);
+    font-weight: 700;
+    color: var(--dourado); /* Dourado premium */
     line-height: 1;
-    margin-bottom: 10px;
 }
 
-.lawyer-name {
-    font-size: 1.2rem;
-    font-weight: 400;
-    margin-bottom: 30px;
+.hero-marca .nome-escritorio {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: #ffffff;
     letter-spacing: 1px;
+    margin-top: 5px;
 }
 
-/* Tipografia da Frase de Impacto */
 .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
+    font-size: 3.8rem;
+    color: #ffffff;
     line-height: 1.2;
     margin-bottom: 40px;
-    font-weight: 700;
 }
 
-/* Botão Caramelo */
+/* Botão Entre em Contato */
 .btn-hero {
-    background-color: var(--caramelo);
-    color: var(--branco-gelo);
-    padding: 15px 30px;
+    background: #b39659;
+    color: #0c1020;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
     text-decoration: none;
-    font-size: 0.8rem;
-    font-weight: bold;
     letter-spacing: 1px;
-    transition: 0.3s;
-    display: inline-block;
+    padding: 16px 35px;
+    border-radius: 4px;
+    align-self: flex-start;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
 }
 
 .btn-hero:hover {
-    background-color: var(--dourado);
-    color: var(--preto-fundo);
+    background: #e0c385;
+    box-shadow: 0 5px 20px rgba(197, 168, 106, 0.3);
+    transform: translateY(-2px);
 }
-.hero-column-art {
+
+/* COLUNA DA DIREITA: PREENCHIMENTO INTEGRAL DA LATERAL */
+.coluna-grega-img {
     position: absolute;
-    right: 0%;          /* Afasta um pouco da borda direita */
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40%;       /* Reduzido de 40% para 25% */
-    max-height: 70vh;   /* Limita a altura para 70% da visão da tela */
-    opacity: 0.25;      /* Opacidade mais sutil para dar elegância */
-    z-index: 1;
-    pointer-events: none;
+    right: 0px;       /* Joga ligeiramente para fora da tela na direita para o corte elegante */
+    top: 12%;           /* Alinha o topo do desenho um pouco abaixo do menu superior */
+    height: 88%;        /* Faz a coluna esticar e ficar gigante na seção */
+    width: auto;        /* Mantém a proporção exata para não achatar o desenho */
+    object-fit: contain;
+    z-index: 1;         /* Camada abaixo do texto */
+    opacity: 0.85;      
+    pointer-events: none; /* Evita que o usuário clique ou selecione a imagem sem querer */
 }
 
-/* Garante que o texto tenha prioridade visual */
-.hero-text-content {
-    position: relative;
-    z-index: 2;
-    padding-left: 0%;   /* Alinhamento refinado */
+/* Responsividade para Celulares e Tablets */
+@media (max-width: 992px) {
+    .hero {
+        text-align: center;
+        padding-top: 60px;
+    }
+    
+    .hero-conteudo {
+        align-items: center;
+        max-width: 100%;
+    }
+    
+    .btn-hero {
+        align-self: center;
+    }
+    
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+    
+    /* No celular, ela vira um elemento sutil ao fundo centralizado */
+    .coluna-grega-img {
+        height: 50%;
+        top: auto;
+        bottom: 0;
+        right: 50%;
+        transform: translateX(50%); /* Centraliza perfeitamente no fundo */
+        opacity: 0.15; /* Bem clarinha para não atrapalhar a leitura dos textos */
+    }
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .hero h1 { font-size: 2.5rem; }
-    .hero-column-art { width: 60%; right: -80px; opacity: 0.2; }
-}
 /* ==========================================================================
-   Seção: Áreas de Atuação (Efeito Flip + Visual Premium)
+   SEÇÃO ÁREAS DE ATUAÇÃO 
    ========================================================================== */
 
-/* ==========================================================================
-   NOVA SEÇÃO DE SERVIÇOS (ESTILO CORPORATIVO LADO A LADO)
-   ========================================================================== */
-
-#servicos {
+   #servicos {
     background-color: #f7f7f7; /* Mantém o fundo off-white/clean que você queria */
     padding: 90px 0;
     width: 100%;
