@@ -1,3 +1,13 @@
+/* --- Fonte Tan Mon Cheri --- */
+
+@font-face {
+    font-family: 'Tan Mon Cheri';
+    src: url('fontes/tan-mon-cheri.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     --preto-fundo: #00001d;
     --caramelo: #af7b4b;
@@ -53,8 +63,7 @@ height: 80px;
 }
 
 .logo { 
-font-family: 'Playfair Display', 
-serif; 
+font-family: 'Tan Mon Cheri', serif;
 font-weight: bold; 
 font-size: 1.4rem; 
 color: #b99851; 
@@ -157,7 +166,7 @@ color: var(--dourado);
 }
 
 .hero-marca .sigla {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Tan Mon Cheri', serif;
     font-size: 3rem;
     font-weight: 700;
     color: var(--dourado); /* Dourado premium */
@@ -173,7 +182,7 @@ color: var(--dourado);
 }
 
 .hero h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 3.8rem;
     color: #ffffff;
     line-height: 1.2;
@@ -246,11 +255,179 @@ color: var(--dourado);
     }
 }
 
+/* --- Seção Sobre Mim (Divisão em duas colunas) --- */
+
+#sobre{
+    background-color: #f7f7f7;
+}
+
+.sobre-grid {
+    display: flex;
+    align-items: center;          /* Alinha verticalmente o texto e a foto ao centro */
+    justify-content: space-between;/* Distribui o espaço entre as caixas */
+    gap: 50px;                    /* Cria o espaçamento entre o texto e a imagem */
+}
+
+/* Força o texto a ficar no lado esquerdo e ocupar o espaço flexível */
+.sobre-texto {
+    flex: 1;
+    order: 1;                     /* Garante que o texto venha primeiro (esquerda) */
+}
+
+/* Estilização dos títulos e parágrafos do texto (opcional para acabamento) */
+.sobre-texto h2 {
+    font-family: 'Tan Mon Cheri', serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 2.8rem;
+    color: var(--dourado);
+    margin-bottom: 10px;
+}
+
+.sobre-texto p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #5d5151; /* Mantém a cor padrão do seu body */
+}
+
+/* Força a foto a ficar no lado direito com tamanho fixo ideal */
+.sobre-img {
+    flex: 0 0 380px;              /* Define a largura fixa para a área da foto */
+    order: 2;                     /* Garante que a foto venha depois (direita) */
+}
+
+/* Se você usar uma tag <img> real dentro da classe .sobre-img */
+.sobre-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 50px;           /* Deixa os cantos levemente arredondados */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Sombra elegante */
+}
+
+/* Caso ainda esteja usando a caixinha escrita "FOTO AQUI" para testar: */
+.moldura-foto {
+    width: 100%;
+    height: 450px;
+    background-color: #1a1a1a;
+    border: 1px solid var(--dourado);
+    color: var(--branco-gelo);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* --- Responsividade para Celular --- */
+@media (max-width: 768px) {
+    .sobre-grid {
+        flex-direction: column;   /* Empilha os elementos no celular */
+        gap: 30px;
+    }
+
+    .sobre-texto {
+        order: 2;                 /* No celular, o texto fica embaixo */
+        text-align: center;       /* Centraliza o texto no mobile */
+    }
+
+    .sobre-img {
+        order: 1;                 /* No celular, a foto fica em cima */
+        flex: 0 1 auto;
+        width: 100%;
+        max-width: 320px;         /* Limita o tamanho da foto no celular */
+    }
+    
+    .moldura-foto {
+        height: 350px;            /* Ajusta a altura do bloco de teste no celular */
+    }
+}
+
+
+/* --- Estilização da Seção Missão, Visão e Valores --- */
+
+/* Fundo da seção inteira */
+.bg-dark {
+    background-color: #00001d;
+    color: var(--branco-gelo);
+    /* Configurações para esticar verticalmente de ponta a ponta */
+    min-height: 100vh;       /* Ocupa no mínimo 100% da altura da tela */
+    display: flex;           /* Ativa o flexbox na section */
+    align-items: center;     /* Centraliza o conteúdo (os cards) verticalmente */
+    width: 100%;
+}
+
+/* Alinha as 3 caixas em colunas paralelas */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px; /* Espaçamento elegante entre os cards */
+    width: 100%;
+}
+
+/* Estilização individual de cada Card */
+.missao-card {
+    background-color: #000020ce; /* Um preto levemente mais claro que o fundo para dar relevo */
+    border: 1px solid rgba(151, 120, 51, 0.462); /* Borda dourada bem sutil */
+    padding: 40px 30px;
+    border-radius: 4px;
+    text-align:     center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* Efeito sutil ao passar o mouse */
+.missao-card:hover {
+    transform: translateY(-5px); /* Eleva o card levemente */
+    border-color: var(--dourado); /* Acende a borda dourada */
+}
+
+/* Estilo dos Ícones */
+.missao-icon {
+    font-size: 2rem;
+    color: var(--dourado);
+    margin-bottom: 20px;
+}
+
+/* Títulos (Missão, Visão, Valores) */
+.missao-card h3 {
+    font-family: 'Tan Mon Cheri', serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 1.8rem;
+    color: var(--branco-gelo);
+    margin-bottom: 15px;
+    letter-spacing: 1.2px;
+}
+
+/* Texto descritivo interno */
+.missao-card p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #c4c4c4; /* Tom cinza claro para não brigar com o título */
+}
+
+/* --- Responsividade para Celular --- */
+@media (max-width: 992px) {
+
+    .bg-dark{
+        padding: 60px 0px; /* Ajusta o padding para telas menores */
+        height: auto;
+    }
+    .grid-3 {
+        grid-template-columns: 1fr; /* Transforma em 1 coluna em tablets e celulares */
+        gap: 20px;
+    }
+    
+    .missao-card {
+        padding: 30px 20px;
+    }
+}
+
 /* ==========================================================================
    SEÇÃO ÁREAS DE ATUAÇÃO 
    ========================================================================== */
 
-   #servicos {
+#servicos {
     background-color: #f7f7f7; /* Mantém o fundo off-white/clean que você queria */
     padding: 90px 0;
     width: 100%;
@@ -285,7 +462,9 @@ color: var(--dourado);
 }
 
 .tt_areas_atuacao { 
-    font-family: 'Playfair Display', serif;
+    font-family: 'Tan Mon Cheri', serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     font-size: 2.8rem;  
     color: var(--dourado);
     letter-spacing: 1px;
@@ -340,7 +519,7 @@ color: var(--dourado);
 .conteudo-servico-horizontal h3 {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.05rem;
-    font-weight: 700;
+    font-weight: 400;
     color: #0c1020; /* Tom azul escuro do site */
     margin: 0 0 5px 0;
     text-transform: uppercase;
@@ -355,7 +534,6 @@ color: var(--dourado);
     line-height: 1.4;
 }
 
-/* Moldura que imita exatamente o estilo da seção Sobre Mim */
 .moldura-foto-servicos {
     width: 100%;
     max-width: 380px;
@@ -436,11 +614,11 @@ footer .container {
 }
 
 .contact-grid h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Tan Mon Cheri', serif;
     font-size: 2.8rem; /* Título maior e mais marcante */
     color: var(--dourado);
     margin-bottom: 35px;
-    letter-spacing: 1px;
+    letter-spacing: 4px;
 }
 
 /* Lista de informações de contato */
@@ -590,168 +768,7 @@ footer .container {
     .contact-grid h2 { font-size: 2.2rem; margin-bottom: 25px; }
     .bloco-horario { margin-top: 35px; }
 }
-/* --- Seção Sobre Mim (Divisão em duas colunas) --- */
 
-#sobre{
-    background-color: #f7f7f7;
-}
-
-.sobre-grid {
-    display: flex;
-    align-items: center;          /* Alinha verticalmente o texto e a foto ao centro */
-    justify-content: space-between;/* Distribui o espaço entre as caixas */
-    gap: 50px;                    /* Cria o espaçamento entre o texto e a imagem */
-}
-
-/* Força o texto a ficar no lado esquerdo e ocupar o espaço flexível */
-.sobre-texto {
-    flex: 1;
-    order: 1;                     /* Garante que o texto venha primeiro (esquerda) */
-}
-
-/* Estilização dos títulos e parágrafos do texto (opcional para acabamento) */
-.sobre-texto h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.8rem;
-    color: var(--dourado);
-    margin-bottom: 10px;
-}
-
-.sobre-texto p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    margin-bottom: 15px;
-    color: #5d5151; /* Mantém a cor padrão do seu body */
-}
-
-/* Força a foto a ficar no lado direito com tamanho fixo ideal */
-.sobre-img {
-    flex: 0 0 380px;              /* Define a largura fixa para a área da foto */
-    order: 2;                     /* Garante que a foto venha depois (direita) */
-}
-
-/* Se você usar uma tag <img> real dentro da classe .sobre-img */
-.sobre-img img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 50px;           /* Deixa os cantos levemente arredondados */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Sombra elegante */
-}
-
-/* Caso ainda esteja usando a caixinha escrita "FOTO AQUI" para testar: */
-.moldura-foto {
-    width: 100%;
-    height: 450px;
-    background-color: #1a1a1a;
-    border: 1px solid var(--dourado);
-    color: var(--branco-gelo);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-}
-
-/* --- Responsividade para Celular --- */
-@media (max-width: 768px) {
-    .sobre-grid {
-        flex-direction: column;   /* Empilha os elementos no celular */
-        gap: 30px;
-    }
-
-    .sobre-texto {
-        order: 2;                 /* No celular, o texto fica embaixo */
-        text-align: center;       /* Centraliza o texto no mobile */
-    }
-
-    .sobre-img {
-        order: 1;                 /* No celular, a foto fica em cima */
-        flex: 0 1 auto;
-        width: 100%;
-        max-width: 320px;         /* Limita o tamanho da foto no celular */
-    }
-    
-    .moldura-foto {
-        height: 350px;            /* Ajusta a altura do bloco de teste no celular */
-    }
-}
-
-/* --- Estilização da Seção Missão, Visão e Valores --- */
-
-/* Fundo da seção inteira */
-.bg-dark {
-    background-color: #00001d;
-    color: var(--branco-gelo);
-    /* Configurações para esticar verticalmente de ponta a ponta */
-    min-height: 100vh;       /* Ocupa no mínimo 100% da altura da tela */
-    display: flex;           /* Ativa o flexbox na section */
-    align-items: center;     /* Centraliza o conteúdo (os cards) verticalmente */
-    width: 100%;
-}
-
-/* Alinha as 3 caixas em colunas paralelas */
-.grid-3 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px; /* Espaçamento elegante entre os cards */
-    width: 100%;
-}
-
-/* Estilização individual de cada Card */
-.missao-card {
-    background-color: #000020ce; /* Um preto levemente mais claro que o fundo para dar relevo */
-    border: 1px solid rgba(151, 120, 51, 0.462); /* Borda dourada bem sutil */
-    padding: 40px 30px;
-    border-radius: 4px;
-    text-align:     center;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-/* Efeito sutil ao passar o mouse */
-.missao-card:hover {
-    transform: translateY(-5px); /* Eleva o card levemente */
-    border-color: var(--dourado); /* Acende a borda dourada */
-}
-
-/* Estilo dos Ícones */
-.missao-icon {
-    font-size: 2rem;
-    color: var(--dourado);
-    margin-bottom: 20px;
-}
-
-/* Títulos (Missão, Visão, Valores) */
-.missao-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    color: var(--branco-gelo);
-    margin-bottom: 15px;
-    letter-spacing: 1.2px;
-}
-
-/* Texto descritivo interno */
-.missao-card p {
-    font-size: 1rem;
-    line-height: 1.8;
-    color: #c4c4c4; /* Tom cinza claro para não brigar com o título */
-}
-
-/* --- Responsividade para Celular --- */
-@media (max-width: 992px) {
-
-    .bg-dark{
-        padding: 60px 0px; /* Ajusta o padding para telas menores */
-        height: auto;
-    }
-    .grid-3 {
-        grid-template-columns: 1fr; /* Transforma em 1 coluna em tablets e celulares */
-        gap: 20px;
-    }
-    
-    .missao-card {
-        padding: 30px 20px;
-    }
-}
 
 #contato {
     background-color: #00001d;
