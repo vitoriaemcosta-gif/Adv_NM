@@ -84,6 +84,24 @@ height: 80px;
     transform: translateY(14px);  /* Valores positivos descem a letra */
 }
 
+.nav-link {
+    color: #cca663; /* Tom de dourado do seu menu */
+    text-decoration: none;
+    padding-bottom: 5px; /* Espaço entre o texto e o traço */
+    border-bottom: 2px solid transparent; /* Deixa o traço invisível por padrão */
+    transition: border-color 0.3s ease; /* Transição suave */
+}
+
+/* Efeito ao passar o mouse */
+.nav-link:hover {
+    border-bottom-color: #cca663;
+}
+
+/* CLASSE ATIVA: É ela que vai manter o traço fixo */
+.nav-link.active {
+    border-bottom-color: var(--dourado); /* Fixa o traço dourado na aba ativa */
+}
+
 .nav-links { 
 display: flex; 
 list-style: none; 
@@ -100,6 +118,7 @@ transition: 0.3s;
 
 .nav-links li a:hover { 
 color: #e0c385; 
+border-bottom: 1px solid #e0c385;
 }
 
 .menu-toggle {
@@ -589,10 +608,10 @@ color: #e0c385;
 
 /* Títulos elegantes em Azul Escuro */
 .editorial-content h3 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Tan Mon Cheri', serif;
     font-size: 1.15rem;
     font-weight: 600;
-    color: #00001d; /* Conecta com o tom principal do site */
+    color: var(--dourado); /* Conecta com o tom principal do site */
     margin: 0 0 12px 0;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -609,7 +628,7 @@ color: #e0c385;
 
 /* Interação sutil ao passar o mouse (a linha dourada ganha vida) */
 .item-editorial:hover {
-    border-bottom-color: #00001d; /* A linha muda sutilmente para o azul escuro */
+    border-color: #00001d; /* A linha muda sutilmente para o azul escuro */
     transform: translateX(5px); /* Um leve movimento lateral, totalmente diferente do vertical da missão */
 }
 
@@ -632,16 +651,12 @@ color: #e0c385;
 /* ==========================================================================
    RODAPÉ E CONTATO PREMIUM
    ========================================================================== */
-#contato {
-    padding: 90px 0;     /* Ocupa no mínimo 100% da altura da tela */
-             /* Ativa o flexbox na section */
-}
 
-   footer { 
+footer { 
     background-color: #00001d; 
     color: #ffffff; 
     display: flex;  
-    padding: 100px 0 100px 0; /* Aumentado o padding superior para dar imponência */
+    padding: 120px 0 50px 0; /* Aumentado o padding superior para dar imponência */
 }
 
 /* Centralizador padrão da sua página */
@@ -671,7 +686,7 @@ footer .container {
 .contact-grid { 
     display: grid; 
     grid-template-columns: 1fr 1fr; 
-    gap: 200px; /* Maior espaçamento central para distribuir melhor os lados */
+    gap: 300px; /* Maior espaçamento central para distribuir melhor os lados */
     align-items: start;
 }
 
